@@ -151,19 +151,36 @@ var DayCell = function (_Component) {
           isEndOfMonth = _props2.isEndOfMonth,
           disabled = _props2.disabled,
           styles = _props2.styles;
+      var _props3 = this.props,
+          ranges = _props3.ranges,
+          day = _props3.day;
 
 
-      return (0, _classnames5.default)(styles.day, (_classnames = {}, _defineProperty(_classnames, styles.dayPassive, isPassive), _defineProperty(_classnames, styles.dayDisabled, disabled), _defineProperty(_classnames, styles.dayToday, isToday), _defineProperty(_classnames, styles.dayWeekend, isWeekend), _defineProperty(_classnames, styles.dayStartOfWeek, isStartOfWeek), _defineProperty(_classnames, styles.dayEndOfWeek, isEndOfWeek), _defineProperty(_classnames, styles.dayStartOfMonth, isStartOfMonth), _defineProperty(_classnames, styles.dayEndOfMonth, isEndOfMonth), _defineProperty(_classnames, styles.dayHovered, this.state.hover), _defineProperty(_classnames, styles.dayActive, this.state.active), _classnames));
+      var isInRange = false;
+
+      console.log('props', this.props);
+
+      if (ranges && ranges.length > 0) {
+        ranges.forEach(function (range) {
+          var startDate = range.startDate;
+          var endDate = range.endDate;
+          if (startDate < day && endDate > day) {
+            isInRange = true;
+          }
+        });
+      }
+
+      return (0, _classnames5.default)(styles.day, (_classnames = {}, _defineProperty(_classnames, styles.dayPassive, isPassive), _defineProperty(_classnames, styles.dayDisabled, disabled), _defineProperty(_classnames, styles.dayToday, isToday), _defineProperty(_classnames, styles.dayWeekend, isWeekend), _defineProperty(_classnames, styles.dayStartOfWeek, isStartOfWeek), _defineProperty(_classnames, styles.dayEndOfWeek, isEndOfWeek), _defineProperty(_classnames, styles.dayStartOfMonth, isStartOfMonth), _defineProperty(_classnames, styles.dayEndOfMonth, isEndOfMonth), _defineProperty(_classnames, styles.dayHovered, this.state.hover), _defineProperty(_classnames, styles.dayActive, this.state.active), _defineProperty(_classnames, styles.inRangeWrapper, isInRange), _classnames));
     }
   }, {
     key: 'renderPreviewPlaceholder',
     value: function renderPreviewPlaceholder() {
       var _classnames2;
 
-      var _props3 = this.props,
-          preview = _props3.preview,
-          day = _props3.day,
-          styles = _props3.styles;
+      var _props4 = this.props,
+          preview = _props4.preview,
+          day = _props4.day,
+          styles = _props4.styles;
 
       if (!preview) return null;
       var startDate = preview.startDate ? (0, _endOfDay2.default)(preview.startDate) : null;
@@ -181,10 +198,10 @@ var DayCell = function (_Component) {
     value: function renderSelectionPlaceholders() {
       var _this2 = this;
 
-      var _props4 = this.props,
-          styles = _props4.styles,
-          ranges = _props4.ranges,
-          day = _props4.day;
+      var _props5 = this.props,
+          styles = _props5.styles,
+          ranges = _props5.ranges,
+          day = _props5.day;
 
       if (this.props.displayMode === 'date') {
         var isSelected = (0, _isSameDay2.default)(this.props.day, this.props.date);

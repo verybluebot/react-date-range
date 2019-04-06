@@ -80,6 +80,22 @@ class DayCell extends Component {
       styles,
     } = this.props;
 
+    const { ranges, day } = this.props;
+
+    let isInRange = false;
+
+    console.log('props', this.props)
+
+    if (ranges && ranges.length > 0) {
+      ranges.forEach(range => {
+        let startDate = range.startDate;
+        let endDate = range.endDate;
+        if (startDate < day && endDate > day) {
+          isInRange = true;
+        }
+      });
+    }
+
     return classnames(styles.day, {
       [styles.dayPassive]: isPassive,
       [styles.dayDisabled]: disabled,
@@ -91,6 +107,7 @@ class DayCell extends Component {
       [styles.dayEndOfMonth]: isEndOfMonth,
       [styles.dayHovered]: this.state.hover,
       [styles.dayActive]: this.state.active,
+      [styles.inRangeWrapper]: isInRange,
     });
   }
   renderPreviewPlaceholder() {

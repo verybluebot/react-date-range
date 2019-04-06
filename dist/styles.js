@@ -33,6 +33,7 @@ exports.default = {
   dayHovered: 'rdrDayHovered',
   dayActive: 'rdrDayActive',
   inRange: 'rdrInRange',
+  inRangeWrapper: 'rdrInRangeWrapper',
   endEdge: 'rdrEndEdge',
   startEdge: 'rdrStartEdge',
   prevButton: 'rdrPprevButton',
