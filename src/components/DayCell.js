@@ -84,13 +84,13 @@ class DayCell extends Component {
 
     let isInRange = false;
 
-    console.log('props', this.props)
-
     if (ranges && ranges.length > 0) {
       ranges.forEach(range => {
         let startDate = range.startDate;
         let endDate = range.endDate;
-        if (startDate < day && endDate > day) {
+        const dayDate = new Date(day);
+
+        if (new Date(startDate) < dayDate && new Date(endDate) > dayDate) {
           isInRange = true;
         }
       });

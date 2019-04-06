@@ -158,13 +158,13 @@ var DayCell = function (_Component) {
 
       var isInRange = false;
 
-      console.log('props', this.props);
-
       if (ranges && ranges.length > 0) {
         ranges.forEach(function (range) {
           var startDate = range.startDate;
           var endDate = range.endDate;
-          if (startDate < day && endDate > day) {
+          var dayDate = new Date(day);
+
+          if (new Date(startDate) < dayDate && new Date(endDate) > dayDate) {
             isInRange = true;
           }
         });
