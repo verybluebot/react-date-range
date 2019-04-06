@@ -144,7 +144,7 @@ var Month = function (_PureComponent) {
           'div',
           { className: styles.monthName },
           this.props.showMonthArrow ? _react2.default.createElement('i', {
-            className: (this.props.right ? this.props.arrowIconRight || '' + ' right' : this.props.arrowIconRight || '' + ' left') + ' icon-arrow-left ' + (0, _classnames2.default)(styles.nextPrevButton, styles.prevButton),
+            className: (this.props.right ? this.props.arrowIconRight || '' + ' right' : this.props.arrowIconLeft || '' + ' left') + ' icon-arrow-left ' + (0, _classnames2.default)(styles.nextPrevButton, styles.prevButton),
             onClick: function onClick() {
               return _this2.props.changeShownDate(_this2.props.right ? 1 : -1, 'monthOffset');
             }

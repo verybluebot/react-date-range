@@ -60,7 +60,7 @@ class Month extends PureComponent {
           <div className={styles.monthName}>
             {this.props.showMonthArrow ? (
               <i
-                className={`${this.props.right ? this.props.arrowIconRight || '' + ' right' : this.props.arrowIconRight || '' + ' left'} icon-arrow-left ${classnames(styles.nextPrevButton, styles.prevButton)}`}
+                className={`${this.props.right ? this.props.arrowIconRight || '' + ' right' : this.props.arrowIconLeft || '' + ' left'} icon-arrow-left ${classnames(styles.nextPrevButton, styles.prevButton)}`}
                 onClick={() => this.props.changeShownDate(this.props.right ? 1 : -1, 'monthOffset')}
               />
             ) : null}

@@ -47,6 +47,10 @@
 .rdrYearPicker{}
 
 .rdrNextPrevButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
   box-sizing: inherit;
   cursor: pointer;
   outline: none;
