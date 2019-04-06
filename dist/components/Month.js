@@ -66,6 +66,10 @@ var _format2 = _interopRequireDefault(_format);
 
 var _utils = require('../utils');
 
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -139,6 +143,12 @@ var Month = function (_PureComponent) {
         this.props.showMonthName ? _react2.default.createElement(
           'div',
           { className: styles.monthName },
+          this.props.showMonthArrow ? _react2.default.createElement('i', {
+            className: (this.props.right ? this.props.arrowIconRight || '' + ' right' : this.props.arrowIconRight || '' + ' left') + ' icon-arrow-left ' + (0, _classnames2.default)(styles.nextPrevButton, styles.prevButton),
+            onClick: function onClick() {
+              return _this2.props.changeShownDate(_this2.props.right ? 1 : -1, 'monthOffset');
+            }
+          }) : null,
           (0, _format2.default)(this.props.month, this.props.monthDisplayFormat, this.props.dateOptions)
         ) : null,
         this.props.showWeekDays && renderWeekdays(styles, this.props.dateOptions),
@@ -209,7 +219,13 @@ Month.propTypes = {
   onMouseLeave: _propTypes2.default.func,
   monthDisplayFormat: _propTypes2.default.string,
   showWeekDays: _propTypes2.default.bool,
-  showMonthName: _propTypes2.default.bool
+  showMonthName: _propTypes2.default.bool,
+  changeShownDate: _propTypes2.default.func,
+  showMonthArrow: _propTypes2.default.bool,
+  left: _propTypes2.default.bool,
+  right: _propTypes2.default.bool,
+  arrowIconRight: _propTypes2.default.string,
+  arrowIconLeft: _propTypes2.default.string
 };
 
 exports.default = Month;
