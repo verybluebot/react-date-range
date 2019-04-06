@@ -1,13 +1,6 @@
 # react-date-range
-[![npm](https://img.shields.io/npm/v/react-date-range.svg?style=flat-square)](https://www.npmjs.com/package/react-date-range)
-![](https://img.shields.io/bithound/dependencies/github/adphorus/react-date-range.svg?style=flat-square)
 
-[![npm](https://img.shields.io/npm/l/react-date-range.svg?style=flat-square)]()
-[![npm](https://img.shields.io/npm/dm/localeval.svg?style=flat-square)](https://www.npmjs.com/package/react-date-range)
-
-> ⚠️ Warning: the current branch represents the new pre-release version. [Legacy version](https://github.com/Adphorus/react-date-range/tree/v0) deprecated.
-
-A date library agnostic React component for choosing dates and date ranges. Uses [date-fns](http://date-fns.org/) for date operations.
+A fork for the date library agnostic React component for choosing dates and date ranges. Uses [date-fns](http://date-fns.org/) for date operations.
 
 ### Why should you use `react-date-range`?
 
@@ -163,11 +156,3 @@ If you prefer, you can overwrite calendar sizes with `calendarWidth`/`calendarHe
     calendarHeight: PropTypes.number, // defaults monthHeight * months
   }),
 ```
-
-
-TODOs
-
-- Make mobile friendly (integrate tap and swipe actions)
-- Add complex booking customization example with exposed dayRenderer prop
-- Add tests
-- Improve documentation
