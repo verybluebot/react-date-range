@@ -1,0 +1,10 @@
+node_modules/
+.DS_Store
+*.log
+.gitignore
+.git/
+demo/
+webpack.config.js
+yarn.lock.js
+.postcssconfig
+.babelrc
