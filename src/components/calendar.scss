@@ -71,6 +71,26 @@
 
 .rdrMonth{
   width: 27.667em;
+
+  .rdrMonthName {
+    display: flex;
+    position: relative;
+    padding-left: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      position: absolute;
+      left: 0;
+      margin: 0 10px 0 0;
+
+      &.right {
+        left: initial;
+        right: 0;
+      }
+    }
+  }
 }
 
 .rdrWeekDays{

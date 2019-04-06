@@ -408,10 +408,13 @@ class Calendar extends PureComponent {
                       preview={this.props.preview || this.state.preview}
                       ranges={ranges}
                       key={key}
+                      right={key > 1}
+                      showMonthArrow={this.props.showMonthArrow}
                       drag={this.state.drag}
                       dateOptions={this.dateOptions}
                       disabledDates={disabledDates}
                       month={monthStep}
+                      changeShownDate={this.changeShownDate}
                       onDragSelectionStart={this.onDragSelectionStart}
                       onDragSelectionEnd={this.onDragSelectionEnd}
                       onDragSelectionMove={this.onDragSelectionMove}
@@ -445,8 +448,11 @@ class Calendar extends PureComponent {
                   preview={this.props.preview || this.state.preview}
                   ranges={ranges}
                   key={i}
+                  right={i > 0}
+                  showMonthArrow={this.props.showMonthArrow}
                   drag={this.state.drag}
                   dateOptions={this.dateOptions}
+                  changeShownDate={this.changeShownDate}
                   disabledDates={disabledDates}
                   month={monthStep}
                   onDragSelectionStart={this.onDragSelectionStart}
@@ -492,6 +498,8 @@ Calendar.defaultProps = {
 };
 
 Calendar.propTypes = {
+  arrowIconRight: PropTypes.string,
+  arrowIconLeft: PropTypes.string,
   showMonthArrow: PropTypes.bool,
   showMonthAndYearPickers: PropTypes.bool,
   disabledDates: PropTypes.array,

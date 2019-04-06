@@ -16,6 +16,7 @@ import {
   eachDayOfInterval,
 } from 'date-fns';
 import { getMonthDisplayRange } from '../utils';
+import classnames from "classnames";
 
 function renderWeekdays(styles, dateOptions) {
   const now = new Date();
@@ -57,6 +58,12 @@ class Month extends PureComponent {
       <div className={styles.month} style={this.props.style}>
         {this.props.showMonthName ? (
           <div className={styles.monthName}>
+            {this.props.showMonthArrow ? (
+              <i
+                className={`${this.props.right ? this.props.arrowIconRight || '' + ' right' : this.props.arrowIconRight || '' + ' left'} icon-arrow-left ${classnames(styles.nextPrevButton, styles.prevButton)}`}
+                onClick={() => this.props.changeShownDate(this.props.right ? 1 : -1, 'monthOffset')}
+              />
+            ) : null}
             {format(this.props.month, this.props.monthDisplayFormat, this.props.dateOptions)}
           </div>
         ) : null}
@@ -133,6 +140,12 @@ Month.propTypes = {
   monthDisplayFormat: PropTypes.string,
   showWeekDays: PropTypes.bool,
   showMonthName: PropTypes.bool,
+  changeShownDate: PropTypes.func,
+  showMonthArrow: PropTypes.bool,
+  left: PropTypes.bool,
+  right: PropTypes.bool,
+  arrowIconRight: PropTypes.string,
+  arrowIconLeft: PropTypes.string,
 };
 
 export default Month;
