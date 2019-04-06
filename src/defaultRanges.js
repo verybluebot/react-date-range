@@ -57,20 +57,34 @@ export const defaultStaticRanges = createStaticRanges([
     }),
   },
 
+  // {
+  //   label: 'This Week',
+  //   range: () => ({
+  //     startDate: defineds.startOfWeek,
+  //     endDate: defineds.endOfWeek,
+  //   }),
+  // },
   {
-    label: 'This Week',
+    label: 'Last 7 Days',
     range: () => ({
-      startDate: defineds.startOfWeek,
-      endDate: defineds.endOfWeek,
+      startDate: addDays(new Date(), -7),
+      endDate: defineds.endOfToday,
     }),
   },
   {
-    label: 'Last Week',
+    label: 'Last 30 Days',
     range: () => ({
-      startDate: defineds.startOfLastWeek,
-      endDate: defineds.endOfLastWeek,
+      startDate: addDays(new Date(), -30),
+      endDate: defineds.endOfToday,
     }),
   },
+  // {
+  //   label: 'Last Week',
+  //   range: () => ({
+  //     startDate: defineds.startOfLastWeek,
+  //     endDate: defineds.endOfLastWeek,
+  //   }),
+  // },
   {
     label: 'This Month',
     range: () => ({
