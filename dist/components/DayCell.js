@@ -158,6 +158,9 @@ var DayCell = function (_Component) {
 
       var isInRange = false;
 
+      var isStartEdge = false;
+      var isEndEdge = false;
+
       if (ranges && ranges.length > 0) {
         ranges.forEach(function (range) {
           var startDate = range.startDate;
@@ -167,10 +170,16 @@ var DayCell = function (_Component) {
           if (new Date(startDate) < dayDate && new Date(endDate) > dayDate) {
             isInRange = true;
           }
+
+          startDate = startDate ? (0, _endOfDay2.default)(startDate) : null;
+          endDate = endDate ? (0, _startOfDay2.default)(endDate) : null;
+
+          isStartEdge = (0, _isSameDay2.default)(day, startDate);
+          isEndEdge = (0, _isSameDay2.default)(day, endDate);
         });
       }
 
-      return (0, _classnames5.default)(styles.day, (_classnames = {}, _defineProperty(_classnames, styles.dayPassive, isPassive), _defineProperty(_classnames, styles.dayDisabled, disabled), _defineProperty(_classnames, styles.dayToday, isToday), _defineProperty(_classnames, styles.dayWeekend, isWeekend), _defineProperty(_classnames, styles.dayStartOfWeek, isStartOfWeek), _defineProperty(_classnames, styles.dayEndOfWeek, isEndOfWeek), _defineProperty(_classnames, styles.dayStartOfMonth, isStartOfMonth), _defineProperty(_classnames, styles.dayEndOfMonth, isEndOfMonth), _defineProperty(_classnames, styles.dayHovered, this.state.hover), _defineProperty(_classnames, styles.dayActive, this.state.active), _defineProperty(_classnames, styles.inRangeWrapper, isInRange), _classnames));
+      return (0, _classnames5.default)(styles.day, (_classnames = {}, _defineProperty(_classnames, styles.dayPassive, isPassive), _defineProperty(_classnames, styles.dayDisabled, disabled), _defineProperty(_classnames, styles.dayToday, isToday), _defineProperty(_classnames, styles.dayWeekend, isWeekend), _defineProperty(_classnames, styles.dayStartOfWeek, isStartOfWeek), _defineProperty(_classnames, styles.dayEndOfWeek, isEndOfWeek), _defineProperty(_classnames, styles.dayStartOfMonth, isStartOfMonth), _defineProperty(_classnames, styles.dayEndOfMonth, isEndOfMonth), _defineProperty(_classnames, styles.dayHovered, this.state.hover), _defineProperty(_classnames, styles.dayActive, this.state.active), _defineProperty(_classnames, styles.inRangeWrapper, isInRange), _defineProperty(_classnames, styles.inStartEdgeWrapper, isStartEdge), _defineProperty(_classnames, styles.inEndEdgeWrapper, isEndEdge), _classnames));
     }
   }, {
     key: 'renderPreviewPlaceholder',

@@ -84,6 +84,9 @@ class DayCell extends Component {
 
     let isInRange = false;
 
+    let isStartEdge = false;
+    let isEndEdge = false;
+
     if (ranges && ranges.length > 0) {
       ranges.forEach(range => {
         let startDate = range.startDate;
@@ -93,6 +96,12 @@ class DayCell extends Component {
         if (new Date(startDate) < dayDate && new Date(endDate) > dayDate) {
           isInRange = true;
         }
+
+        startDate = startDate ? endOfDay(startDate) : null;
+        endDate = endDate ? startOfDay(endDate) : null;
+
+        isStartEdge = isSameDay(day, startDate);
+        isEndEdge = isSameDay(day, endDate);
       });
     }
 
@@ -108,6 +117,8 @@ class DayCell extends Component {
       [styles.dayHovered]: this.state.hover,
       [styles.dayActive]: this.state.active,
       [styles.inRangeWrapper]: isInRange,
+      [styles.inStartEdgeWrapper]: isStartEdge,
+      [styles.inEndEdgeWrapper]: isEndEdge,
     });
   }
   renderPreviewPlaceholder() {

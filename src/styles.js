@@ -29,6 +29,8 @@ export default {
   dayActive: 'rdrDayActive',
   inRange: 'rdrInRange',
   inRangeWrapper: 'rdrInRangeWrapper',
+  inStartEdgeWrapper: 'rdrStartEdgeWrapper',
+  inEndEdgeWrapper: 'rdrEndWrapper',
   endEdge: 'rdrEndEdge',
   startEdge: 'rdrStartEdge',
   prevButton: 'rdrPprevButton',
