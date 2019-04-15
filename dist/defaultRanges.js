@@ -134,7 +134,7 @@ var defaultStaticRanges = exports.defaultStaticRanges = createStaticRanges([{
   range: function range() {
     return {
       startDate: defineds.startOfMonth,
-      endDate: defineds.endOfMonth
+      endDate: defineds.startOfToday
     };
   }
 }, {
