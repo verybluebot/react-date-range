@@ -89,7 +89,7 @@ export const defaultStaticRanges = createStaticRanges([
     label: 'This Month',
     range: () => ({
       startDate: defineds.startOfMonth,
-      endDate: defineds.endOfToday,
+      endDate: defineds.startOfToday,
     }),
   },
   {
